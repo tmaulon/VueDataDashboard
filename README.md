@@ -1,2 +1,0 @@
-# VueDataDashboard
-Created with CodeSandbox
