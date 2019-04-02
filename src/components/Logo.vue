@@ -1,5 +1,5 @@
 <template>
-  <img width="25%" :src="logo.src.value" :alt="logo.alt.value">
+  <img :src="logo.src.value" :alt="logo.alt.value">
 </template>
 
 <script>
@@ -24,5 +24,3 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>

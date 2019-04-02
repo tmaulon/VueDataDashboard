@@ -1,9 +1,8 @@
 <template>
   <li>
-    <a href="#" :title="lien.text">
-      <i :class="lien.classIcon"></i>
-      <font-awesome-icon icon="coffee"/>
-      <span class="link__label">{{ lien.text }}</span>
+    <a href="#" :title="lien.text" class="VddApp_NavBar_List_Item_Link">
+      <i class="VddApp_NavBar_List_Item_Link_Icon" :class="lien.classIcon"></i>
+      <span class="VddApp_NavBar_List_Item_Link_Label">{{ lien.text }}</span>
     </a>
   </li>
 </template>
@@ -14,6 +13,7 @@ export default {
   props: {
     lien: {
       type: Object,
+      required: true,
       text: {
         type: String,
         required: true

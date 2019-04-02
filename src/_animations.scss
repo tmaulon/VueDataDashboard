@@ -1,0 +1,85 @@
+$easeOutBack: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+@keyframes fadeInRightToLeft{
+  0%{
+    transform: translateX(20%);
+    opacity: 0;
+  }
+
+  80%{
+    opacity: 1;
+  }
+
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInLeftToRight{
+  0%{
+    transform: translateX(-20%);
+    opacity: 0;
+  }
+
+  80%{
+    opacity: 1;
+  }
+
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInTopToBottom{
+  0%{
+    transform: translateY(20%);
+    opacity: 0;
+  }
+
+  80%{
+    opacity: 1;
+  }
+
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadeInBottomToTop{
+  0%{
+    transform: translateY(-20%);
+    opacity: 0;
+  }
+
+  80%{
+    opacity: 1;
+  }
+
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes layoutDisapearrance{
+  0%{
+    transform: scaleX(1);
+  }
+
+  100%{
+    transform: scaleX(0);
+  }
+}
+
+@mixin fadeInFrom($side) {
+  @if ($side == 'top') {
+    animation: fadeInTopToBottom .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  } @else if ($side == 'bottom') {
+    animation: fadeInBottomToTop .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  } @else if  ($side == 'left') {
+    animation: fadeInLeftToRight .3s $easeOutBack both;
+  } @else if  ($side == 'right') {
+    animation: fadeInRightToLeft .3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  } @else {}
+  
+}
+
