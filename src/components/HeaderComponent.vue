@@ -1,11 +1,11 @@
 <template>
   <header role="banner">
     <div class="VddApp_Logo_Wrapper">
-      <Logo class="VddApp_Logo" :logo="logo" :src="logo.src.value" :alt="logo.alt.value"/>
+      <Logo class="VddApp_Logo" :logo="logo" :src="logo.src" :alt="logo.alt"/>
     </div>
     <h1 class="VddApp_Header_Title">{{ appTitle }}</h1>
     <DateTime/>
-    <UserLoged class="VddApp_Header_UserLogged" :fullName="fullName"/>
+    <UserLoged class="VddApp_Header_UserLogBtn" :fullName="fullName"/>
   </header>
 </template>
 
@@ -34,16 +34,8 @@ export default {
     return {
       fullName: "Thomas Maulon",
       logo: {
-        src: {
-          type: String,
-          required: true,
-          value: logoPath
-        },
-        alt: {
-          type: String,
-          required: true,
-          value: "Logo de l'application"
-        }
+        src: logoPath,
+        alt: "Logo de l'application"
       }
     };
   }

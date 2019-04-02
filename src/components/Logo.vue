@@ -1,5 +1,5 @@
 <template>
-  <img :src="logo.src.value" :alt="logo.alt.value">
+  <img :src="logo.src" :alt="logo.alt">
 </template>
 
 <script>
@@ -11,13 +11,11 @@ export default {
       required: true,
       src: {
         type: String,
-        required: true,
-        value: ""
+        required: true
       },
       alt: {
         type: String,
-        required: true,
-        value: ""
+        required: true
       }
     }
   }

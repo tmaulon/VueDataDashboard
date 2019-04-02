@@ -1,5 +1,6 @@
 <template>
   <div id="app" class="VddApp">
+    <UserConnexion/>
     <Aside class="VddApp_Aside"/>
     <HeaderComponent class="VddApp_Header" :appTitle="appTitle"/>
     <main class="VddApp_Main">
@@ -12,6 +13,7 @@
 </template>
 
 <script>
+import UserConnexion from "./components/UserConnexion.vue";
 import HeaderComponent from "./components/HeaderComponent.vue";
 import TabWrapperComponent from "./components/TabWrapperComponent.vue";
 import Aside from "./components/Aside.vue";
@@ -20,6 +22,7 @@ import Logo from "./components/Logo.vue";
 export default {
   name: "App",
   components: {
+    UserConnexion,
     HeaderComponent,
     TabWrapperComponent,
     Aside,
@@ -202,7 +205,8 @@ a:active {
       }
     }
 
-    &_UserLogged {
+    &_UserLogBtn {
+      position: relative;
       display: flex;
       align-items: center;
       box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.14);
@@ -211,6 +215,46 @@ a:active {
       font-weight: 600;
       background: $light;
       color: $fire-blue;
+      transform: scale(1);
+      transition: all 0.6s $easeOutBack;
+
+      &::before,
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 2px solid $vue-green;
+        transform: scale(0);
+        transition: all 0.6s ease-in-out;
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        transform-origin: top left;
+        border-bottom-color: transparent;
+        border-right-color: transparent;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        transform-origin: bottom right;
+        border-top-color: transparent;
+        border-left-color: transparent;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+
+        &::before,
+        &::after {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
       & > i {
         font-size: 1.2rem;
